@@ -1,15 +1,15 @@
 
+"use client"
 import Head from 'next/head';
 import Home from './Home/page';
+import { useAgencyInfo } from './context/agency';
 
-export default function About() {
+export default function () {
+  const [agency] = useAgencyInfo()
+  console.log("agencyagencyagency", agency)
   return (
     <>
-      <Head>
-        <title>About Us</title>
-        <meta name="description" content="About page of our Next.js app" />
-      </Head>
-      <Home/>
+      <Home />
     </>
   );
 }

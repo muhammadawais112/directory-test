@@ -33,9 +33,28 @@ const Home = () => {
   console.log(themeContentObject, 'themeContentObject')
 
   console.log(businesses, 'businesses123')
+  console.log("agency", agency)
+  const title =
+    agency?.theme_id?.theme_data?.content?.title || "Smart Directory AI";
+  const description =
+    agency?.theme_id?.theme_data?.content?.description ||
+    "Explore AI-powered business listings.";
+  useEffect(() => {
+    document.title = title;
+    const existingMeta = document.querySelector('meta[name="description"]');
+    if (existingMeta) {
+      existingMeta.setAttribute("content", description);
+    } else {
+      const meta = document.createElement("meta");
+      meta.name = "description";
+      meta.content = description;
+      document.head.appendChild(meta);
+    }
+  }, [title, description]);
 
   return (
     <div className='bg-white'>
+
       <div className='z-10'>
         {themeContentObject?.showMap && agency?.google_api_key ? (
           <MapContainer
