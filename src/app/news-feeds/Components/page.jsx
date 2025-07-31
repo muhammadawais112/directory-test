@@ -1,12 +1,10 @@
+"use client"
+import { useAgencyInfo } from '@/app/context/agency';
+import { useAppServices } from '@/app/hook/services';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router';
-import { useAppServices } from '../../../hook/services';
-import { useAgencyInfo } from '../../../context/agency';
-import banner from '../../../assets/Blogs/main.png'
-import Pagination from '../../../components/Pagination/Pagination';
-import sample from "../../../assets/Home/sample.svg";
-
-
+import sample from "../../assets/Home/sample.svg"
+import Pagination from '@/app/components/Pagination/Pagination';
 const NewsFeedDetail = () => {
   const Service = useAppServices();
   const [agency] = useAgencyInfo();
